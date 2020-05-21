@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Created on Fri May  1 08:50:32 2020
-
-@author: ponaravind
-"""
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -96,8 +91,6 @@ def build(grid, q_init, number_of_vertices, dt):
 
 def heuristic(n1, n2):
     return np.linalg.norm(np.array(n2) - np.array(n1))
-
-
 
 def a_star(graph, h, start, goal):
            
