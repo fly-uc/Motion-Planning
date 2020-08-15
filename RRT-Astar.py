@@ -136,17 +136,18 @@ def a_star(graph, h, start, goal):
         print('Failed to find a path!')
     return path[::-1], path_cost
 
-number_of_vertices = 4000
-dt = 1
-q_init = (0, 0)
-start_ne = (25, 25)
-goal_ne = (75, 75)
+number_of_vertices = 1500
+dt = 2
+# q_init = (50, 50)
+start_ne = (20, 90)
+goal_ne = (80, 30)
+q_init = start_ne
 
 grid = city_map()
 rrt = build(grid, q_init, number_of_vertices, dt)
 
 plt.imshow(grid, cmap='Greys', origin='lower')
-plt.plot(q_init[1], q_init[0], 'go')
+# plt.plot(q_init[1], q_init[0], 'go')
 
 for (v1, v2) in rrt.edges:
     plt.plot([v1[1], v2[1]], [v1[0], v2[0]], 'r-')
@@ -164,7 +165,7 @@ for e in rrt.edges:
     G.add_edge(p1, p2, weight=dist)
 
 path, cost = a_star(G, heuristic, start_ne_g, goal_ne_g)
-print(len(path))
+print(len(path)) 
 
 plt.plot([start_ne[1], start_ne_g[1]], [start_ne[0], start_ne_g[0]], 'b-')
 for i in range(len(path)-1):
